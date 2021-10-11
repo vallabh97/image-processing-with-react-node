@@ -1,0 +1,8 @@
+# front-end dependencies
+client/node_modules
+
+#back-end dependencies
+server/node_modules
+
+#dist
+server/dist

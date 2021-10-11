@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Roboto-light';
+  src: url(./fonts/Roboto/Roboto-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto-regular';
+  src: url(./fonts/Roboto/Roboto-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto-medium';
+  src: url(./fonts/Roboto/Roboto-Medium.ttf) format('truetype');
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto-regular', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #212121a3;
+}
+
+.iosDevice {
+  height: calc(100vh - 75px);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
