@@ -1,4 +1,4 @@
-# An Image Processing web app
+# An Image Processing Web App
 
 Using this web application, user can apply image filters on device uploaded images or images fetched from Unsplash (Using <b>Unsplash API</b>) and download those images.
 Image filters are used from <b>PixelsJs</b> image filtering library.
