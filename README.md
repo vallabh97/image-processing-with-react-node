@@ -19,8 +19,8 @@ visit https://unsplash.com/developers
 5. Run command `npm start`.
 6. Open another terminal window and navigate to `client` folder.
 7. Run command `npm install`.
-8. Run command `npm start`. (To run in production mode use command `npm run build` instead.)
-9. Open browser and go to http://localhost:3000 (For production mode go to http://localhost:5000 instead) to see the app running.
+8. Run command `npm start`. (To run in production mode, use command `npm run build` instead.)
+9. Open browser and go to http://localhost:3000 (For production mode, go to http://localhost:5000 instead) to see the app running.
 
 
 
