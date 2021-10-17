@@ -11,38 +11,45 @@ const unsplashApi = createApi({
   fetch: nodeFetch,
 });
 
+const port = 3001;
+
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200,
+};
+
+app.use("*", cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/unsplash-proxy/search/photos', (req, res) => {
-  unsplashApi.search.getPhotos(req.query)
-   .then(response => {
-     res.status(200).json(response.response);
-   })
-   .catch(err => {
-     res.status(500).json({err});
-   });
+app.get("/unsplash-proxy/search/photos", (req, res) => {
+  unsplashApi.search
+    .getPhotos(req.query)
+    .then((response) => {
+      res.status(200).json(response.response);
+    })
+    .catch((err) => {
+      res.status(500).json({ err });
+    });
 
-app.post('/unsplash-proxy/track-downloads', (req, res) => {
-  if (req.body && req.body.downloadLocation) {
-    unsplashApi.photos
-      .trackDownload({downloadLocation: req.body.downloadLocation})
-      .then((response) => {
-        res.status(200).json(response);
-      })
-      .catch((err) => {
-        res.status(500).json({ err });
-      });
-  } else {
-    res.status(400).json({error: 'downloadLocation is required.'});
-  }
-});
-});
-
-app.listen(3001, () => {
-  console.log('Server is listening on port 3001');
+  app.post("/unsplash-proxy/track-downloads", (req, res) => {
+    if (req.body && req.body.downloadLocation) {
+      unsplashApi.photos
+        .trackDownload({ downloadLocation: req.body.downloadLocation })
+        .then((response) => {
+          res.status(200).json(response);
+        })
+        .catch((err) => {
+          res.status(500).json({ err });
+        });
+    } else {
+      res.status(400).json({ error: "downloadLocation is required." });
+    }
+  });
 });
 
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
